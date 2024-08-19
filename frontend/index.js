@@ -31,9 +31,38 @@ function moduleProject3() {
 
   function buildLearnerCard(learner, languages) {
     //  ✨ do your magic here
+    const section = document.querySelector('section');
+    const learnerCard = document.createElement('div');
+    learnerCard.classList.add('learner-card');
+
+    const name = document.createElement('p');
+    const id = document.createElement('p');
+    const dob = document.createElement('p');
+    const favLang = document.createElement('p');
+
+    name.innerHTML = learner.fullName;
+    id.innerHTML = `Learner ID: ${learner.id}`;
+    dob.innerHTML = `Date of Birth: ${learner.dateOfBirth}`;
+    favLang.innerHTML = `Favorite Language: ${languages}`;
+
+    learnerCard.appendChild(name);
+    learnerCard.appendChild(id);
+    learnerCard.appendChild(dob);
+    learnerCard.appendChild(favLang);
+
+    section.appendChild(learnerCard);
+
+    learnerCard.addEventListener('click', () => {
+      const active = document.querySelector('.active');
+      if (learnerCard !== active) {
+        learnerCard.classList.add('active');
+        active.classList.remove('active')
+      } else {
+        active.classList.remove('active');
+      }
+    });
   }
 
-  {
     // 👉 TASK 2B - Use the two variables below to make learner Cards, and put them in the DOM
 
     let languages = [
@@ -51,12 +80,23 @@ function moduleProject3() {
       { id: 17, fullName: 'Daniel Castillo', dateOfBirth: '1995-11-05', favLanguage: 12 }
     ]
     //  ✨ do your magic here
-  }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      learners.forEach(learner => {
+        const learnerLanguage = languages.find(language => learner.favLanguage === language.id);
+
+        if (learnerLanguage) {
+          buildLearnerCard(learner, learnerLanguage.name);
+        }
+      });
+    });
 
   // 👉 TASK 3 - Write a `buildFooter` component that returns a footer
 
   function buildFooter(footerData) {
     //  ✨ do your magic here
+    // console.log('Footer', footerData);
+
     return document.createElement('footer')
   }
 
