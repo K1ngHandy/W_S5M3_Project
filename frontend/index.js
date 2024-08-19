@@ -81,7 +81,6 @@ function moduleProject3() {
     ]
     //  ✨ do your magic here
 
-    document.addEventListener('DOMContentLoaded', () => {
       learners.forEach(learner => {
         const learnerLanguage = languages.find(language => learner.favLanguage === language.id);
 
@@ -89,13 +88,12 @@ function moduleProject3() {
           buildLearnerCard(learner, learnerLanguage.name);
         }
       });
-    });
 
   // 👉 TASK 3 - Write a `buildFooter` component that returns a footer
 
   function buildFooter(footerData) {
     //  ✨ do your magic here
-    // console.log('Footer', footerData);
+    console.log('Footer', footerData);
 
     return document.createElement('footer')
   }
