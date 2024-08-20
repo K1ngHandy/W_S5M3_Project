@@ -93,9 +93,61 @@ function moduleProject3() {
 
   function buildFooter(footerData) {
     //  ✨ do your magic here
-    console.log('Footer', footerData);
+    console.log('Contact email: ', footerData.contactEmail);
 
-    return document.createElement('footer')
+    // query select
+    const body = document.querySelector('body');
+
+    // create element
+    const footer = document.createElement('footer');
+    const companyInfo = document.createElement('div');
+    const socialMedia = document.createElement('div');
+    const copyright = document.createElement('div');
+    const companyName = document.createElement('p');
+    const address = document.createElement('p');
+    const contactEmail = document.createElement('p');
+    const email = document.createElement('a');
+    const twitter = document.createElement('a');
+    const facebook = document.createElement('a');
+    const instagram = document.createElement('a');
+
+    // class name
+    companyInfo.classList.add('company-info');
+    companyName.classList.add('company-name');
+    address.classList.add('address');
+    contactEmail.classList.add('contact-email');
+    socialMedia.classList.add('social-media');
+
+    // inner HTML
+    companyName.innerHTML = 'Bloom Institute of Technology';
+    address.innerHTML = '123 Main Street, City, Country';
+    contactEmail.innerHTML = 'Email: ';
+    email.innerHTML = ' info@example.com';
+    twitter.innerHTML = 'Twitter';
+    facebook.innerHTML = 'Facebook';
+    instagram.innerHTML = 'Instagram';
+    copyright.innerHTML = '© BLOOM INSTITUTE OF TECHNOLOGY 2023';
+
+    // set attribute
+    email.setAttribute('href', 'mailto:info@example.com');
+    twitter.setAttribute('href', 'https://twitter.com/example');
+    facebook.setAttribute('href', 'https://www.facebook.com/example');
+    instagram.setAttribute('href', 'https://www.instagram.com/example');
+
+    // append
+    companyInfo.appendChild(companyName);
+    companyInfo.appendChild(address);
+    companyInfo.appendChild(contactEmail);
+    contactEmail.appendChild(email);
+    socialMedia.appendChild(twitter);
+    socialMedia.appendChild(facebook);
+    socialMedia.appendChild(instagram);
+    footer.appendChild(companyInfo);
+    footer.appendChild(socialMedia);
+    footer.appendChild(copyright);
+    body.appendChild(footer);
+
+    // return document.createElement('footer')
   }
 
   // ❗ DOM creation using your `buildFooter` component (do not change):
