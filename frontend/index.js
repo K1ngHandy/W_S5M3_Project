@@ -93,7 +93,6 @@ function moduleProject3() {
 
   function buildFooter(footerData) {
     //  ✨ do your magic here
-    console.log('Contact email: ', footerData.contactEmail);
 
     // query select
     const body = document.querySelector('body');
@@ -119,10 +118,10 @@ function moduleProject3() {
     socialMedia.classList.add('social-media');
 
     // inner HTML
-    companyName.innerHTML = 'Bloom Institute of Technology';
-    address.innerHTML = '123 Main Street, City, Country';
+    companyName.innerHTML = footerData.companyName;
+    address.innerHTML = footerData.address;
     contactEmail.innerHTML = 'Email: ';
-    email.innerHTML = ' info@example.com';
+    email.innerHTML = footerData.contactEmail;
     twitter.innerHTML = 'Twitter';
     facebook.innerHTML = 'Facebook';
     instagram.innerHTML = 'Instagram';
@@ -130,9 +129,9 @@ function moduleProject3() {
 
     // set attribute
     email.setAttribute('href', 'mailto:info@example.com');
-    twitter.setAttribute('href', 'https://twitter.com/example');
-    facebook.setAttribute('href', 'https://www.facebook.com/example');
-    instagram.setAttribute('href', 'https://www.instagram.com/example');
+    twitter.setAttribute('href', footerData.socialMedia.twitter);
+    facebook.setAttribute('href', footerData.socialMedia.facebook);
+    instagram.setAttribute('href', footerData.socialMedia.instagram);
 
     // append
     companyInfo.appendChild(companyName);
