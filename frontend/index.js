@@ -93,9 +93,7 @@ function moduleProject3() {
 
   function buildFooter(footerData) {
     //  ✨ do your magic here
-
-    // query select
-    const body = document.querySelector('body');
+    const copyrightName = `© ${footerData.companyName.toUpperCase()} ${new Date().getFullYear()}`;
 
     // create element
     const footer = document.createElement('footer');
@@ -125,7 +123,7 @@ function moduleProject3() {
     twitter.innerHTML = 'Twitter';
     facebook.innerHTML = 'Facebook';
     instagram.innerHTML = 'Instagram';
-    copyright.innerHTML = '© BLOOM INSTITUTE OF TECHNOLOGY 2023';
+    copyright.innerHTML = copyrightName;
 
     // set attribute
     email.setAttribute('href', 'mailto:info@example.com');
@@ -144,8 +142,8 @@ function moduleProject3() {
     footer.appendChild(companyInfo);
     footer.appendChild(socialMedia);
     footer.appendChild(copyright);
-    body.appendChild(footer);
 
+    return footer;
     // return document.createElement('footer')
   }
 
