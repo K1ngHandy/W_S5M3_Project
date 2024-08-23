@@ -52,8 +52,11 @@ function moduleProject3() {
 
     section.appendChild(learnerCard);
 
-    learnerCard.addEventListener('click', () => {
+    learnerCard.addEventListener('click', (event) => {
       const active = document.querySelector('.active');
+      // stop event from reaching <section>
+      event.stopPropagation();
+
       if (learnerCard !== active) {
         learnerCard.classList.add('active');
         active.classList.remove('active')
@@ -162,6 +165,15 @@ function moduleProject3() {
   // 👉 TASK 4 - Clicking on the section should deactivate the active card
 
   //  ✨ do your magic here
+  const section = document.querySelector('section');
+
+  section.addEventListener('click', () => {
+    const activeCard = document.querySelector('.active');
+    
+    if (activeCard) {
+      activeCard.classList.remove('active');
+    }
+  });
 }
 
 // ❗ DO NOT CHANGE THIS CODE
